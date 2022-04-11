@@ -1,0 +1,10 @@
+{
+    "Server": {
+        "Remote": true,
+        "Hostname": "https://biblos.herokuapp.com"
+    },
+    "User": {
+        "Cuenta": "carlo",
+        "Password": "magno15"
+    }
+}

@@ -103,3 +103,29 @@ func JLoginGET(server Server, user User) (id uint32) {
 	//fmt.Println(body)
 	return
 }
+
+//Metodo para obtener el listado de libros
+func JBook(server Server, reStr string) (book []BookZ) {
+	url := server.Hostname + "/biblos/jbook/" + reStr
+	book = []BookZ{}
+	body := getBody(url)
+	jsonErr := json.Unmarshal(body, &book)
+	if jsonErr != nil {
+		fmt.Println("JBookGet", jsonErr)
+		log.Fatal(jsonErr)
+	}
+	return
+}
+
+//Metodo para obtener el listado de autores
+func JAuth(server Server, reStr string) (book []BookZ) {
+	book = []BookZ{}
+	url := server.Hostname + "/biblos/jauthor/" + reStr
+	body := getBody(url)
+	jsonErr := json.Unmarshal(body, &book)
+	if jsonErr != nil {
+		fmt.Println("JBookGet", jsonErr)
+		log.Fatal(jsonErr)
+	}
+	return
+}

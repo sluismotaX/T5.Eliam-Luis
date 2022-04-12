@@ -69,9 +69,28 @@ func main() {
 	fmt.Println(" Reporte Libros ")
 	fmt.Println()
 	control.JLoginGET(config.Server, config.User)
-	control.JBook(config.Server, tab[0])
-	control.JAuth(config.Server, tab[1])
-	control.JEdit(config.Server, tab[2])
-	control.JLang(config.Server, tab[3])
+	fmt.Println("Libros por Titulo: ", tab[0])
+	list := control.JBook(config.Server, tab[0])
+	for i := 0; i < len(list); i++ {
+		fmt.Println(list[i].Title)
+		fmt.Println(list[i].Author)
+		fmt.Println(list[i].Editor)
+		fmt.Println(list[i].Language)
+		fmt.Println(list[i].Comment)
+		fmt.Println(list[i].Year)
+		fmt.Println()
+	}
+
+	fmt.Println("Libros por Autor: ", tab[1])
+	list = control.JAuth(config.Server, tab[1])
+	for i := 0; i < len(list); i++ {
+		fmt.Println(list[i].Title)
+		fmt.Println(list[i].Author)
+		fmt.Println(list[i].Editor)
+		fmt.Println(list[i].Language)
+		fmt.Println(list[i].Comment)
+		fmt.Println(list[i].Year)
+		fmt.Println()
+	}
 	fmt.Println()
 }

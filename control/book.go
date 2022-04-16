@@ -129,3 +129,29 @@ func JAuth(server Server, reStr string) (book []BookZ) {
 	}
 	return
 }
+
+//Metodo para obtener el listado de editores
+func JEdit(server Server, reStr string) (book []BookZ) {
+	book = []BookZ{}
+	url := server.Hostname + "/biblos/jeditor/" + reStr
+	body := getBody(url)
+	jsonErr := json.Unmarshal(body, &book)
+	if jsonErr != nil {
+		fmt.Println("JBookGet", jsonErr)
+		log.Fatal(jsonErr)
+	}
+	return
+}
+
+//Metodo para obtener el listado de lenguajes
+func JLang(server Server, reStr string) (book []BookZ) {
+	book = []BookZ{}
+	url := server.Hostname + "/biblos/jlang/" + reStr
+	body := getBody(url)
+	jsonErr := json.Unmarshal(body, &book)
+	if jsonErr != nil {
+		fmt.Println("JBookGet", jsonErr)
+		log.Fatal(jsonErr)
+	}
+	return
+}
